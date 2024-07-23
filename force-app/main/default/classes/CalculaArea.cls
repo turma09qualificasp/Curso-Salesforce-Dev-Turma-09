@@ -3,5 +3,3 @@ public with sharing class CalculaArea {
         return (base * altura) / 2;
     }
 }
-
-//área = (base * altura) / 2.
