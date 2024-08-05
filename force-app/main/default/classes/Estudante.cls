@@ -1,5 +1,5 @@
 public class Estudante extends Pessoa {
-    private String curso;
+	private String curso;
     private Boolean formado;
     
     public Estudante(String nome, Date dataNasc, String cpf, String curso, Boolean formado){
@@ -9,7 +9,7 @@ public class Estudante extends Pessoa {
     }
     
     override public void verificaCpf(){
-            validaCpf();
+		validaCpf();
 	}
     
     public String getCurso(){
