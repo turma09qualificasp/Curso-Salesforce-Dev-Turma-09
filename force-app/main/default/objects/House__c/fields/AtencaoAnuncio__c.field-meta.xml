@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AtencaoAnuncio__c</fullName>
+    <formula>(ISBLANK(Address__c) ||
+ISBLANK(Bathrooms__c) ||
+ISBLANK(Bedroom__c) ||
+ISBLANK(Price__c) ||
+ISBLANK(Picture__c)) &amp;&amp;
+NOT(ISBLANK(Municipio__r.Name))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>AtencaoAnuncio</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Casas_do_Municipio_de_Goias</fullName>
+    <columns>NAME</columns>
+    <columns>Price__c</columns>
+    <columns>Address__c</columns>
+    <columns>Zip__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Municipio__c</field>
+        <operation>equals</operation>
+        <value>Goiás</value>
+    </filters>
+    <label>Casas do Municipio de Goiás</label>
+</ListView>

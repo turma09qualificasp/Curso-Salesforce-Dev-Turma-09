@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valida_Cep</fullName>
+    <active>true</active>
+    <description>Regra que confere se o CEP contém a quantidade de caracteres minimo.</description>
+    <errorConditionFormula>LEN(Cep__c) != 8 ||
+LEFT(Cep__c, 3) != &apos;123&apos;</errorConditionFormula>
+    <errorDisplayField>Cep__c</errorDisplayField>
+    <errorMessage>O Cep deve ter oito caracteres e seguir o padrão da região.</errorMessage>
+</ValidationRule>

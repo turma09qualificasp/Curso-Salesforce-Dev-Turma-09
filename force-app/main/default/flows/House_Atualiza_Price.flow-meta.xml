@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <assignments>
+        <name>atribuiValorBR</name>
+        <label>atribuiValorBR</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Price__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>valorCorrigidoBR</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>atribuiValorSP</name>
+        <label>atribuiValorSP</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Price__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>valorCorrigidoSP</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>validaPreco</name>
+        <label>validaPreço</label>
+        <locationX>182</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>atribuiValorBR</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>precoSP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Price__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>300000.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Municipio__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>São Paulo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>atribuiValorSP</targetReference>
+            </connector>
+            <label>Preço SP</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>valorCorrigidoBR</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Price__c} - ({!$Record.Price__c} * 0.1)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>valorCorrigidoSP</name>
+        <dataType>Currency</dataType>
+        <expression>{!$Record.Price__c} - ({!$Record.Price__c} * 0.2)</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>House - Atualiza Price {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>House - Atualiza Price</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>validaPreco</targetReference>
+        </connector>
+        <object>House__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
