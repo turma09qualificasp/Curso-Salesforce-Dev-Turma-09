@@ -19,6 +19,7 @@
 	</types>
 	<types>
 		<members>House__c-House Layout</members>
+		<members>Municipio__c-Municipio Layout</members>
 		<name>Layout</name>
 	</types>
 	<version>60.0</version>
