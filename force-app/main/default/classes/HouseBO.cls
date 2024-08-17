@@ -39,4 +39,3 @@ public with sharing class HouseBO {
         }
     }
 }
-

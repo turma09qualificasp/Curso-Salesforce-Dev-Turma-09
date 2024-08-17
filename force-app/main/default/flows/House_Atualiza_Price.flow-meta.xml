@@ -59,17 +59,24 @@
             <label>Preço SP</label>
         </rules>
     </decisions>
+    <description>Correção Bug - Preço sendo alterado sempre.</description>
     <environments>Default</environments>
     <formulas>
         <name>valorCorrigidoBR</name>
         <dataType>Currency</dataType>
-        <expression>{!$Record.Price__c} - ({!$Record.Price__c} * 0.1)</expression>
+        <expression>IF(ISCHANGED({!$Record.Price__c}), 
+      {!$Record.Price__c} - ({!$Record.Price__c} * 0.1), 
+      {!$Record.Price__c}
+)</expression>
         <scale>2</scale>
     </formulas>
     <formulas>
         <name>valorCorrigidoSP</name>
         <dataType>Currency</dataType>
-        <expression>{!$Record.Price__c} - ({!$Record.Price__c} * 0.2)</expression>
+        <expression>IF(ISCHANGED({!$Record.Price__c}), 
+      {!$Record.Price__c} - ({!$Record.Price__c} * 0.2), 
+      {!$Record.Price__c}
+)</expression>
         <scale>2</scale>
     </formulas>
     <interviewLabel>House - Atualiza Price {!$Flow.CurrentDateTime}</interviewLabel>

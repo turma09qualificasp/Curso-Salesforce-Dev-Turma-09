@@ -16,5 +16,13 @@
         <members>*</members>
         <name>CustomField</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types>
     <version>61.0</version>
 </Package>
