@@ -22,5 +22,10 @@
 		<members>Municipio__c-Municipio Layout</members>
 		<name>Layout</name>
 	</types>
+	<types>
+		<members>House__c.Exibe_Mapa</members>
+		<members>House__c.Sell_House</members>
+		<name>QuickAction</name>
+	</types>
 	<version>60.0</version>
 </Package>
