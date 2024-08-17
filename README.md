@@ -1,18 +1,20 @@
-# Salesforce DX Project: Next Steps
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+### Passo 1: Clonar o Projeto
+---
+  1. No terminal, navegue até o diretório onde deseja clonar o projeto e execute:
+        
+        `git clone https://github.com/turma09qualificasp/Curso-Salesforce-Dev-Turma-09` 
+        
+ 2.  Após a clonagem, abra o projeto no Visual Studio Code.
 
-## How Do You Plan to Deploy Your Changes?
+### Passo 2: Autorize a Org
+---
+1.  No Visual Studio Code, pressione `Ctrl + Shift + P` (ou `Cmd + Shift + P` no macOS) e execute o comando `SFDX: Authorize an Org`.
+2.  Selecione a opção `Project Default` e insira um nome desejado para o ambiente.
+3.  O comando abrirá um navegador para autenticação. Faça login com os dados da sua Org para concluir o processo.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### Passo 3: Fazer o Deploy
+---
+1.  Vá até o diretório padrão do seu projeto e, com o botão direito na pasta, selecione a opção para realizar o deploy.
+![image](https://github.com/user-attachments/assets/f5a4f854-91c3-4e83-aefa-0e0be59cbbfe)
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
