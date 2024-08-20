@@ -1,25 +1,18 @@
-public class AccountRepository {
-    public static Account getAccountById(Id accountId){
-        return [SELECT Id, Name, Industry, (SELECT Id, Name From Contacts) FROM Account WHERE ID =: accountId];
+public class AccountRepository implements IRepository {
+
+    Account acc;
+    String queryString;
+
+    public AccountRepository(Account accToUpsert, String queryString){
+        this.acc = accToUpsert;
+        this.queryString = queryString;
     }
-    
-    public static Account getAccountByName(String nomeConta){
-        return [SELECT Id, Name, Industry FROM Account WHERE Name =: nomeConta];
+   
+    public Object doUpsert(){
+        return Database.upsert(this.acc);
     }
-    
-    public static void insertAccount(Account acc){
-        insert acc;
-    }
-    
-    public static void deleteAccount(Account acc){
-        delete acc;
-    }
-    
-    public static void updateAccount(Account acc){
-        update acc;
-    }
-    
-    public static void upsertAccount(Account acc){
-        upsert acc;
+
+    public Object doQuery(){
+        return Database.query(this.queryString);
     }
 }

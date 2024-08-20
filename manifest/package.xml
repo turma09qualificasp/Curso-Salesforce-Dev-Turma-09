@@ -27,10 +27,6 @@
 		<name>PermissionSet</name>
 	</types>
 	<types>
-		<members>*</members>
-		<name>Profile</name>
-	</types>
-	<types>
 		<members>House__c.Exibe_Mapa</members>
 		<members>House__c.Sell_House</members>
 		<name>QuickAction</name>
