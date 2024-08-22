@@ -11,11 +11,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>House__c.AtencaoAnuncio__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>House__c.Bathrooms__c</field>
         <readable>true</readable>
@@ -33,11 +28,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>House__c.City__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>House__c.House_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

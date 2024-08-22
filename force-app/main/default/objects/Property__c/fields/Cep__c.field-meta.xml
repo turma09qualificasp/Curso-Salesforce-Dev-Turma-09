@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>SellValue__c</fullName>
+    <fullName>Cep__c</fullName>
     <externalId>false</externalId>
-    <label>Sell Value</label>
-    <precision>18</precision>
+    <label>Cep</label>
+    <length>8</length>
     <required>false</required>
-    <scale>0</scale>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackTrending>false</trackTrending>
-    <type>Currency</type>
+    <type>Text</type>
+    <unique>false</unique>
 </CustomField>

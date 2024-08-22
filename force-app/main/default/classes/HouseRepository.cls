@@ -27,5 +27,3 @@ public with sharing class HouseRepository implements IRepository{
         return Database.query(queryString);
     }
 }
-
-

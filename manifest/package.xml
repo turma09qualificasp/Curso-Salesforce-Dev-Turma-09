@@ -9,6 +9,17 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>* q</members>
+		<name>CustomField</name>
+	</types>
+	<types>
+		<members>House__c</members>
+		<members>Imposto__c</members>
+		<members>Municipio__c</members>
+		<members>Property__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>FlexiPage</name>
 	</types>

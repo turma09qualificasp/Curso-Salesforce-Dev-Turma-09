@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>SellValue__c</fullName>
+    <fullName>Total_Area__c</fullName>
     <externalId>false</externalId>
-    <label>Sell Value</label>
+    <formula>Area__c *  Length__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Area</label>
     <precision>18</precision>
     <required>false</required>
-    <scale>0</scale>
-    <trackFeedHistory>false</trackFeedHistory>
+    <scale>2</scale>
     <trackTrending>false</trackTrending>
-    <type>Currency</type>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>

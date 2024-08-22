@@ -7,7 +7,8 @@ public class AccountRepository implements IRepository {
         this.acc = accToUpsert;
         this.queryString = queryString;
     }
-   
+
+    
     public Object doUpsert(){
         return Database.upsert(this.acc);
     }
