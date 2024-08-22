@@ -14,10 +14,11 @@ public with sharing class HouseBO {
 
 
     public static void createOpportunityWhenSelled(List<House__c> triggerNew){
-        List<Opportunity> opportunityToInsert = new List<Opportunity>();
+        Map<String, Opportunity> opportunityToInsert = new Map<String, Opportunity>();
         for(House__c house : triggerNew){
             if(house.Selled__c != null && house.SellDate__c != null &&
             house.Opportunity__c == null){
+                System.debug('ENTROU NO IF');
                 Opportunity opportunity = new Opportunity(
                     Name = house.Name,
                     Amount = house.SellValue__c,
@@ -25,17 +26,17 @@ public with sharing class HouseBO {
                     CloseDate = Date.valueOf(house.SellDate__c),
                     AccountId = house.Account__c
                 );
-                opportunityToInsert.add(opportunity);
+                opportunityToInsert.put(house.Id, opportunity);
             }    
         }
+        System.debug(opportunityToInsert);
         if(!opportunityToInsert.isEmpty()){
-            insert opportunityToInsert;
-        }
+            insert opportunityToInsert.values();
 
-        for(House__c house : triggerNew){
-            for(Opportunity opportunity :opportunityToInsert){
-                house.Opportunity__c = opportunity.Id;
+            for(House__c house : triggerNew){
+                house.Opportunity__c = opportunityToInsert.get(house.Id).Id;
             }
         }
+
     }
 }

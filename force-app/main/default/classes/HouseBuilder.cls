@@ -1,33 +1,37 @@
-public class HouseBuilder extends AbstractHouseBuilder{
+public class HouseBuilder extends AbstractPropertyBuilder{
 
+
+    House__c house;
     // Construtor
-    public HouseBuilder(Id municipioId) {
-        super(municipioId);
+    public HouseBuilder(String name, Id municipioId, String cep, Decimal area, Decimal length, Decimal price) {
+        super(name, municipioId, cep, area, length, price);
     }
 
-    // Implementa o método da interface para encadeamento
-    override public IHouseBuilder setBeedroms(Decimal beedroms) {
-        this.beedroms = beedroms;
+    override public Object calculatePrice() {
+         //TEMOS O ID DO MUNICIPIO
+        Municipio__c municipio = [SELECT Imposto__r.Iof__c FROM Municipio__c WHERE Id =: this.property.Municipio__c LIMIT 1];
+        this.property.Price__c = this.property.Price__c -  (this.property.Price__c * municipio.Imposto__r.Iof__c);
         return this;
     }
 
-    override public IHouseBuilder setCep(String cep) {
-        this.cep = cep;
-        return this;
+    public void createHouse(Decimal beedroms, Decimal bathrooms){
+        this.house = new House__c(
+            Bathrooms__c = bathrooms,
+            Bedroom__c = beedroms,
+            Cep__c = this.property.Cep__c,
+            Name = this.property.Name
+        );
     }
 
-    override public IHouseBuilder setBathrooms(Decimal bathrooms) {
-        this.bathrooms = bathrooms;
-        return this;
+    override public Object getResult() {
+        System.debug(this.property);
+        return this.property;
     }
 
-    
-    override public House__c getResult() {
-        House__c house = new House__c();
-        house.Bedroom__c = this.beedroms;
-        house.Bathrooms__c = this.bathrooms;
-        house.Cep__c = this.cep;
-        house.Municipio__c = this.municipioId;
-        return house;
+    override public Object insertObject(){
+        insert this.property;
+        this.house.Property__c = this.property.Id;
+        insert this.house;
+        return this;
     }
 }
