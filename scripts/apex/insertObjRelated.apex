@@ -4,7 +4,9 @@ Municipio__c municipio = new Municipio__c(
 );
  
 insert municipio;
+
 House__c casa = new House__c(
+    //CAMPO LOOKUP
     Municipio__c = municipio.Id,
     Name = 'Casa de Goiás'
 );

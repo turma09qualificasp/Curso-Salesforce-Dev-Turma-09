@@ -1,9 +1,17 @@
 public with sharing class HouseBO {
+
+    @future
+    public static void sendEmailFuture(String[] addresses){
+        new SendEmailService(addresses).sendEmail();
+    }
     
     public static void setRatingHouseByPrice(List<House__c> triggerNew){
         for(House__c house : triggerNew){
             if(house.Price__c >= 500000){
                 house.Rating__c = 'A';
+                String[] emails = new String[] {'igor.guedes@fatcursos.org.br'  };
+                System.enqueueJob(new SendEmailQueueable(emails));
+                sendEmailFuture(emails);
             } else if(house.Price__c >= 300000){
                 house.Rating__c = 'B';
             } else {

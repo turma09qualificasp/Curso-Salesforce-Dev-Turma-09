@@ -10,7 +10,8 @@ public class AccountRepository implements IRepository {
 
     
     public Object doUpsert(){
-        return Database.upsert(this.acc);
+        insert this.acc;
+        return Database.upsert(this.acc, false);
     }
 
     public Object doQuery(){
