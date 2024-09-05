@@ -1,0 +1,11 @@
+<template>
+    <lightning-card>
+        <lightning-datatable
+        data={data}
+        columns={columns}
+        key-field="Id"
+        onrowselection={getTotalSelled}>
+    </lightning-datatable>
+    <div>O VALOR TOTAL DAS PROPRIEDADES SELECIONADAS É IGUAL A: {amountSales}</div> 
+    </lightning-card>
+</template>
