@@ -8,7 +8,7 @@ public with sharing class OpportunityBO {
             }
             // Verifica se o StageName é "Negotiation/Review"
             else if (opp.StageName == 'Negotiation/Review') {
-                opp.Probability = 85;
+                opp.Probability = 90;
             }
         }
     }
